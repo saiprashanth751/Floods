@@ -5,8 +5,445 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floods Webpage</title>
-    <link rel="stylesheet" href="/10.222+Project Floods/style.css">
+<!--     <link rel="stylesheet" href="/10.222+Project Floods/style.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.main-slider-container {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.case-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+p {
+    line-height: 1.6;
+    color: #555;
+}
+footer {
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+button {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+.section-title {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #3498db;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    width: 100%;
+}
+
+
+
+section {
+    background-color: #e5e3d9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 5px;
+    width: 80%;
+    box-sizing: border-box; 
+}
+
+
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    background-color: #f4f3ef;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.conclusion{
+    background-color: #f4f3ef;
+    width: 98%;
+    /* padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px; */
+    text-align: center;
+}
+
+.introduction-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/* .causes-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    
+} */
+
+#map {
+    height: 500px;
+    width: 90%;
+    margin: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#prevButton2, #nextButton2 {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#prevButton2:hover, #nextButton2:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+#case1 .image-and-text-container {
+    overflow: hidden; /* Clear the float */
+}
+
+#case1 .image1 {
+    float: left;
+    margin-right: 20px;
+}
+
+#case1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+
+#one{
+    width: 98%;
+}
+ #two{
+    width: 98%;
+}    
+    
+#three{
+    width: 98%;
+}
+#four{
+    width: 98%;
+}
+#five{
+    width: 98%;
+}
+#six{
+    width: 98%;
+}
+/* #seven{
+    width: 98%;
+}
+#eight{
+    width: 98%;
+} */
+
+#nine{
+    width: 98%;
+}
+.main-slider-container1 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section2 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container1 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.cause-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content1 {
+    margin-bottom: 20px;
+}
+#cause1 .image-and-text-container {
+    overflow: hidden; /* Clear the float */
+}
+#cause1 .image1 {
+    float: left;
+    margin-right: 20px;
+}
+#cause1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title1 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.main-slider-container2 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section3 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container2 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.com-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content2 {
+    margin-bottom: 20px;
+}
+/* #com1 .image-and-text-container {
+    overflow: hidden; 
+} */
+/* #com1 .image1 {
+    float: left;
+    margin-right: 20px;
+} */
+#com1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title2 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+
+
+
+
+}
+.main-slider-container3 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper3 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section4 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container3 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper3 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.imp-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content3 {
+    margin-bottom: 20px;
+}
+/* #com1 .image-and-text-container {
+    overflow: hidden; 
+} */
+/* #com1 .image1 {
+    float: left;
+    margin-right: 20px;
+} */
+#imp1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title3 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+    </style>
 </head>
 
 <body>
